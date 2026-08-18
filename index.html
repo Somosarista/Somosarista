@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARISTA — Recupera tu propiedad</title>
+  <meta name="description" content="ARISTA — Estudio jurídico especializado en restitución de inmuebles arrendados.">
+  <style>
+    :root{
+      --ink:#173f34;
+      --ink-2:#28594b;
+      --cream:#f2f2ed;
+      --paper:#fafaf6;
+      --accent:#c66c4c;
+      --line:rgba(23,63,52,.18);
+      --muted:#61726b;
+      --white:#fff;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--paper);
+      font-family:var(--sans);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .nav{
+      position:sticky; top:0; z-index:20;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:20px 5vw;
+      background:rgba(250,250,246,.94);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .brand{
+      font-family:var(--serif);
+      letter-spacing:.18em;
+      font-size:1.25rem;
+    }
+    .nav a{
+      text-decoration:none;
+      font-weight:700;
+      font-size:.9rem;
+    }
+    .nav-cta{
+      background:var(--ink); color:var(--white);
+      padding:11px 18px; border-radius:999px;
+    }
+    .hero{
+      min-height:78vh;
+      display:grid; grid-template-columns:1.15fr .85fr;
+      align-items:center;
+      padding:9vw 8vw 7vw;
+      gap:7vw;
+      background:var(--cream);
+    }
+    .eyebrow{
+      display:flex; align-items:center; gap:12px;
+      color:var(--accent);
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:.76rem;
+      margin-bottom:22px;
+    }
+    .eyebrow:before{content:""; width:42px; height:2px; background:var(--accent)}
+    h1{
+      font-family:var(--serif);
+      font-weight:500;
+      font-size:clamp(3rem,6.5vw,6.8rem);
+      line-height:.98;
+      letter-spacing:-.045em;
+      margin:0 0 28px;
+      max-width:900px;
+    }
+    .hero-copy{
+      font-size:1.12rem;
+      max-width:650px;
+      color:#3f514b;
+    }
+    .button{
+      display:inline-flex; align-items:center; gap:10px;
+      margin-top:30px;
+      background:var(--accent); color:var(--white);
+      text-decoration:none;
+      font-weight:800;
+      padding:15px 22px;
+      border-radius:999px;
+    }
+    .hero-mark{
+      min-height:420px;
+      border-left:1px solid var(--line);
+      display:flex; align-items:center; justify-content:center;
+      position:relative;
+    }
+    .mark{
+      width:min(30vw,390px); aspect-ratio:1;
+      border:1px solid var(--ink);
+      transform:rotate(45deg);
+      position:relative;
+    }
+    .mark:before,.mark:after{
+      content:""; position:absolute; inset:16%;
+      border:1px solid var(--accent);
+    }
+    .mark:after{inset:32%; border-color:var(--ink)}
+    .section{
+      padding:100px 8vw;
+    }
+    .section.dark{
+      background:var(--ink); color:var(--white);
+    }
+    .section-head{
+      max-width:800px; margin-bottom:55px;
+    }
+    h2{
+      font-family:var(--serif);
+      font-weight:500;
+      font-size:clamp(2.3rem,4vw,4.3rem);
+      line-height:1.02;
+      letter-spacing:-.035em;
+      margin:0 0 20px;
+    }
+    .lead{font-size:1.12rem; max-width:720px; color:#50635c}
+    .dark .lead{color:#d8e0dc}
+    .process{
+      display:grid; grid-template-columns:repeat(5,1fr);
+      border-top:1px solid rgba(255,255,255,.25);
+    }
+    .step{
+      padding:28px 22px 10px 0;
+      border-right:1px solid rgba(255,255,255,.25);
+      margin-right:22px;
+    }
+    .step:last-child{border-right:0}
+    .num{color:var(--accent); font-weight:800; font-size:.8rem; letter-spacing:.12em}
+    .step h3{font-size:1.15rem; margin:12px 0 8px}
+    .step p{color:#c7d4ce; font-size:.95rem}
+    .step.final h3{font-family:var(--serif); font-size:1.55rem}
+    .info-grid{
+      display:grid; grid-template-columns:1fr 1fr; gap:22px;
+    }
+    .card{
+      border:1px solid var(--line);
+      padding:38px;
+      background:#f6f6f0;
+    }
+    .card h3{margin:0 0 10px; font-size:1.05rem; text-transform:uppercase; letter-spacing:.08em}
+    .price{
+      font-family:var(--serif);
+      font-size:clamp(3rem,5vw,5.2rem);
+      color:var(--accent);
+      line-height:1;
+      margin:20px 0 8px;
+    }
+    .split{
+      display:grid; grid-template-columns:1fr 1fr; gap:70px;
+      align-items:start;
+    }
+    .qa{border-top:1px solid var(--line)}
+    details{border-bottom:1px solid var(--line); padding:0}
+    summary{
+      cursor:pointer; list-style:none;
+      padding:24px 0;
+      font-weight:600;
+      display:flex; justify-content:space-between; gap:20px;
+    }
+    summary::-webkit-details-marker{display:none}
+    summary:after{content:"+"; color:var(--accent); font-size:1.4rem; line-height:1}
+    details[open] summary:after{content:"−"}
+    details p{padding:0 35px 25px 0; margin:0; color:#51645d}
+    .contact{
+      display:grid; grid-template-columns:.85fr 1.15fr; gap:7vw;
+      align-items:start;
+    }
+    .contact-note{
+      font-size:1.05rem; color:#50635c; max-width:560px;
+    }
+    form{
+      display:grid; gap:15px;
+      background:var(--cream); padding:34px;
+      border:1px solid var(--line);
+    }
+    label{font-size:.82rem; font-weight:600; letter-spacing:.03em}
+    input, textarea{
+      width:100%; border:1px solid rgba(23,63,52,.25);
+      background:var(--white); padding:14px 15px;
+      margin-top:6px; font:inherit; color:var(--ink);
+      border-radius:2px;
+    }
+    textarea{min-height:130px; resize:vertical}
+    button{
+      border:0; cursor:pointer;
+      background:var(--ink); color:var(--white);
+      padding:15px 20px; font:inherit; font-weight:800;
+      border-radius:999px; justify-self:start;
+    }
+    .direct{
+      margin-top:25px; padding-top:25px; border-top:1px solid var(--line);
+    }
+    .direct a{font-weight:600; color:var(--accent)}
+    .form-status{
+      display:none;
+      margin:4px 0 0;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      background:var(--paper);
+      font-size:.95rem;
+    }
+    .form-status.show{display:block}
+    .form-status strong{display:block; margin-bottom:2px}
+    footer{
+      padding:35px 8vw;
+      display:flex; justify-content:space-between; gap:30px;
+      border-top:1px solid var(--line);
+      color:#687870; font-size:.86rem;
+    }
+    @media (max-width:900px){
+      .hero,.contact,.split{grid-template-columns:1fr}
+      .hero{padding-top:70px}
+      .hero-mark{display:none}
+      .process{grid-template-columns:1fr 1fr}
+      .step:nth-child(2n){border-right:0}
+      .info-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:620px){
+      .nav{padding:16px 5vw}
+      .nav-cta{padding:9px 13px}
+      .section{padding:72px 6vw}
+      .hero{padding:70px 6vw 65px}
+      .process{grid-template-columns:1fr}
+      .step{border-right:0; border-bottom:1px solid rgba(255,255,255,.2); margin:0; padding-bottom:24px}
+      .step:last-child{border-bottom:0}
+      .card{padding:26px}
+      form{padding:25px}
+      footer{padding:28px 6vw; flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="brand">ARISTA</div>
+  <a class="nav-cta" href="#contacto">Escríbenos →</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Estudio jurídico</div>
+      <h1>¿Tu arrendatario no está pagando?<br><em>Recupera tu propiedad.</em></h1>
+      <p class="hero-copy">Revisamos tu situación y los antecedentes de tu arriendo para determinar cómo procedemos en tu caso.</p>
+      <a class="button" href="#contacto">Cuéntanos tu caso →</a>
+    </div>
+    <div class="hero-mark" aria-hidden="true">
+      <div class="mark"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">Qué hacemos</div>
+      <h2>Un problema concreto necesita una respuesta concreta.</h2>
+      <p class="lead">Analizamos los antecedentes de tu arrendamiento y la situación de tu propiedad para determinar la forma de proceder en tu caso.</p>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="section-head">
+      <div class="eyebrow">Cómo trabajamos</div>
+      <h2>Te mostramos el camino.</h2>
+      <p class="lead">Queremos que sepas qué estamos haciendo y qué viene después, sin llenarte de información innecesaria.</p>
+    </div>
+    <div class="process">
+      <article class="step">
+        <div class="num">01</div>
+        <h3>Revisamos</h3>
+        <p>Analizamos tu situación y los antecedentes de tu arriendo.</p>
+      </article>
+      <article class="step">
+        <div class="num">02</div>
+        <h3>Definimos</h3>
+        <p>Determinamos cómo proceder de acuerdo con las características de tu caso.</p>
+      </article>
+      <article class="step">
+        <div class="num">03</div>
+        <h3>Iniciamos</h3>
+        <p>Gestionamos las actuaciones necesarias para llevar adelante el proceso.</p>
+      </article>
+      <article class="step">
+        <div class="num">04</div>
+        <h3>Informamos</h3>
+        <p>Te mantenemos al tanto de los avances relevantes de tu caso.</p>
+      </article>
+      <article class="step final">
+        <div class="num">05</div>
+        <h3>Recuperas tu propiedad.</h3>
+        <p>El objetivo del procedimiento es obtener la restitución del inmueble cuando corresponda.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">Honorarios y plazo</div>
+      <h2>Lo importante, claro desde el comienzo.</h2>
+    </div>
+    <div class="info-grid">
+      <article class="card">
+        <h3>Honorarios</h3>
+        <div class="price">$500.000</div>
+        <p>Honorario total.</p>
+        <p><strong>$250.000</strong> antes de iniciar la gestión.</p>
+        <p><strong>$250.000</strong> al obtener sentencia favorable o acuerdo con el arrendatario.</p>
+        <p style="color:#61726b;font-size:.9rem">Aplica a causas que califiquen para la vía correspondiente con los antecedentes requeridos. Si tu caso es distinto, revisaremos tu situación y cotizaremos según sus características.</p>
+      </article>
+      <article class="card">
+        <h3>¿Cuánto puede demorar?</h3>
+        <div class="price">30–120</div>
+        <p><strong>días como referencia.</strong></p>
+        <p>El tiempo depende de las características de cada caso, las actuaciones necesarias y la tramitación del tribunal.</p>
+        <p style="color:#61726b;font-size:.9rem">Este rango es referencial y no constituye una garantía de duración del procedimiento.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="split">
+      <div class="section-head" style="margin:0">
+        <div class="eyebrow">Preguntas frecuentes</div>
+        <h2>Lo que probablemente quieres saber antes de comenzar.</h2>
+        <p class="lead">Si tu duda no aparece acá, cuéntanos tu caso y la revisamos contigo.</p>
+      </div>
+      <div class="qa">
+        <details>
+          <summary>¿Puedo recuperar mi propiedad si mi arrendatario no está pagando?</summary>
+          <p>La Ley 21.461 contempla un procedimiento expedito para solicitar la restitución del inmueble arrendado cuando se cumplen sus requisitos. No existe un número mínimo de meses impagos: dependiendo del caso, pueden existir rentas adeudadas, deudas por gastos comunes o cuentas de servicios básicos.</p>
+        </details>
+        <details>
+          <summary>¿Qué antecedentes necesito para que revisen mi caso?</summary>
+          <p>Idealmente, cuéntanos con tu contrato de arriendo, comprobantes de deudas por servicios básicos o gastos comunes, según corresponda, y cualquier otro documento que consideres relevante. Cada caso es distinto y requiere una evaluación particular.</p>
+        </details>
+        <details>
+          <summary>¿Necesito tener un contrato escrito y firmado ante notario?</summary>
+          <p>No necesariamente. Dependiendo de las características del caso, puede ser posible ejercer las acciones correspondientes aun cuando no exista un contrato escrito y firmado ante notario. Revisamos los antecedentes disponibles para determinar qué vía corresponde.</p>
+        </details>
+        <details>
+          <summary>¿Tengo que ir yo al tribunal?</summary>
+          <p>En la mayoría de las gestiones no es necesario. Te mantenemos informado por nuestros canales y solo requerimos tu presencia cuando sea estrictamente indispensable.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa si mi caso no cumple los requisitos?</summary>
+          <p>Revisamos los antecedentes antes de iniciar cualquier gestión. Si determinamos que no se cumplen los requisitos para el procedimiento, te lo informaremos y te explicaremos qué alternativas existen, cuando corresponda. Lo importante es actuar a tiempo.</p>
+        </details>
+        <details>
+          <summary>¿Puedo cambiar la chapa o cortar los servicios básicos mientras dura el procedimiento?</summary>
+          <p>No recomendamos tomar medidas por cuenta propia para recuperar la propiedad. Cambiar la chapa, cortar los servicios básicos u otras medidas de este tipo pueden generar consecuencias en tu contra. Si tu arrendatario no está cumpliendo, te recomendamos utilizar la vía legal correspondiente.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacto">
+    <div class="contact">
+      <div>
+        <div class="eyebrow">Contacto</div>
+        <h2>Cuéntanos qué está pasando.</h2>
+        <p class="contact-note">Si prefieres que nosotros te contactemos, déjanos tus datos y una breve descripción de tu situación. Nos pondremos en contacto contigo para conocer tu caso y explicarte cómo podemos ayudarte.</p>
+        <div class="direct">
+          ¿Prefieres escribirnos directamente?<br>
+          <a href="https://wa.me/56961194987" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de ARISTA">Escríbenos por WhatsApp →</a>
+        </div>
+      </div>
+
+      <form id="contact-form" action="https://formsubmit.co/aristaestudiojuridico@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nueva consulta desde somosarista.cl">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+        <label>Nombre
+          <input name="nombre" type="text" placeholder="Tu nombre" autocomplete="name" required>
+        </label>
+        <label>Teléfono
+          <input name="telefono" type="tel" placeholder="+56 9..." autocomplete="tel" required>
+        </label>
+        <label>Correo electrónico
+          <input name="email" type="email" placeholder="tu@correo.cl" autocomplete="email" required>
+        </label>
+        <label>Cuéntanos brevemente tu caso
+          <textarea name="caso" placeholder="¿Qué está pasando con tu arrendamiento?" required></textarea>
+        </label>
+        <button type="submit">Quiero que me contacten →</button>
+        <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="brand">ARISTA</div>
+  <div>Estudio jurídico · Chile</div>
+  <div>© 2026 ARISTA</div>
+</footer>
+<script>
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    formStatus.classList.remove('show');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Enviando…';
+
+    try {
+      const formData = new FormData(contactForm);
+      const response = await fetch('https://formsubmit.co/ajax/aristaestudiojuridico@gmail.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+
+      if (!response.ok) throw new Error('No se pudo enviar el formulario');
+
+      formStatus.innerHTML = '<strong>Recibimos tu consulta.</strong>Nos pondremos en contacto contigo para conocer tu caso.';
+      formStatus.classList.add('show');
+      contactForm.reset();
+    } catch (error) {
+      formStatus.innerHTML = '<strong>No pudimos enviar tu consulta.</strong>Inténtalo nuevamente o escríbenos directamente por WhatsApp.';
+      formStatus.classList.add('show');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Quiero que me contacten →';
+    }
+  });
+</script>
+</body>
+</html>
