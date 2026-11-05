@@ -127,23 +127,4 @@ document.querySelectorAll('a[href^="https://wa.me/56961194987"]').forEach(link=>
   }
  });
 });
-const contactForm=document.getElementById('contact-form');
-const formStatus=document.getElementById('form-status');
-const submitButton=contactForm.querySelector('button[type="submit"]');
-contactForm.addEventListener('submit',async(event)=>{
- event.preventDefault(); formStatus.classList.remove('show'); submitButton.disabled=true; submitButton.textContent='Enviando…';
- try{
-  const formData=new FormData(contactForm);
-  const response=await fetch('https://formsubmit.co/ajax/aristaestudiojuridico@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:formData});
-  const result=await response.json();
-  if(!response.ok || !result || (result.success !== true && result.success !== 'true')) throw new Error('FormSubmit no confirmó el envío');
-  // Registrar solo envíos aceptados por FormSubmit, nunca clics ni errores.
-  if(typeof gtag === 'function') gtag('event', 'conversion', {'send_to': 'AW-18496498958/M3PcCLxWh6UdEI7a6PNE'});
-  formStatus.innerHTML='<strong>Recibimos tu consulta.</strong>Nos pondremos en contacto contigo para conocer tu caso.';
-  formStatus.classList.add('show'); contactForm.reset();
- }catch(error){
-  formStatus.innerHTML='<strong>No pudimos enviar tu consulta.</strong>Inténtalo nuevamente o escríbenos directamente por <a href="https://wa.me/56961194987?text=Hola%2C%20necesito%20asesor%C3%ADa%20para%20recuperar%20un%20inmueble%20arrendado.%20Me%20gustar%C3%ADa%20conocer%20c%C3%B3mo%20pueden%20ayudarme." target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a>.';
-  formStatus.classList.add('show');
- }finally{submitButton.disabled=false;submitButton.textContent='Enviar formulario →';}
-});
 </script></body></html>
