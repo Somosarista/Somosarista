@@ -112,6 +112,14 @@ footer .arista-footer-contact a:hover,footer .arista-footer-contact a:focus-visi
 })();
 
 document.querySelectorAll('.mobile-menu-panel a').forEach(link=>link.addEventListener('click',()=>{document.querySelector('.mobile-menu').open=false;}));
+// Medir intención de llamada desde los enlaces telefónicos de la landing.
+document.querySelectorAll('a[href^="tel:"]').forEach(link=>{
+ link.addEventListener('click',()=>{
+  if(typeof gtag === 'function'){
+   gtag('event','conversion',{'send_to':'AW-18496498958/EqDGC07l-7IdEI7a6PNE'});
+  }
+ });
+});
 // Medir intención de contacto: ambos enlaces a WhatsApp, sin contar cargas de página.
 document.querySelectorAll('a[href^="https://wa.me/56961194987"]').forEach(link=>{
  link.addEventListener('click',()=>{
