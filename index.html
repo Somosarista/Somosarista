@@ -88,6 +88,8 @@ footer .arista-footer-contact a:hover,footer .arista-footer-contact a:focus-visi
 }
 
 #servicios .arista-service-cta{margin-top:30px}
+/* La fotografía de Situaciones comienza inmediatamente tras el bloque anterior en móvil. */
+@media(max-width:760px){#servicios{padding-bottom:0}}
 
 /* ARISTA · Situaciones que atendemos. Sección independiente, diseño mobile-first. */
 #situaciones.arista-cases-section{position:relative;isolation:isolate;overflow:hidden;padding:86px 0 92px;background:#24382e;color:var(--paper);border-top:0}
@@ -114,7 +116,7 @@ footer .arista-footer-contact a:hover,footer .arista-footer-contact a:focus-visi
  #situaciones::after{background:linear-gradient(180deg,rgba(10,28,23,.37) 0%,rgba(10,28,23,.43) 32%,rgba(10,28,23,.64) 64%,rgba(10,28,23,.80) 100%)}
  #situaciones .arista-cases-wrap{width:calc(100% - 36px)}
  #situaciones .arista-cases-title{font-size:clamp(36px,10vw,48px);line-height:1.13;margin-bottom:17px}
- #situaciones .arista-cases-intro{font-size:14px;line-height:1.62}
+ #situaciones .arista-cases-intro{font-size:17px;line-height:1.65}
  #situaciones .arista-cases-list{grid-template-columns:1fr;gap:10px;margin-top:28px}
  #situaciones .arista-case{border-radius:15px}
  #situaciones .arista-case summary{font-size:15px;line-height:1.4;padding:17px 44px 17px 17px;min-height:58px;display:flex;align-items:center}
@@ -122,7 +124,7 @@ footer .arista-footer-contact a:hover,footer .arista-footer-contact a:focus-visi
  #situaciones .arista-case-desc{padding:0 17px 17px}
  #situaciones .arista-case-desc p{font-size:13px}
  #situaciones .arista-cases-cta{margin-top:25px}
- #situaciones .arista-cases-cta .pill.orange{display:inline-flex;width:auto;max-width:100%;min-height:48px;padding:12px 24px;text-align:center}
+ #situaciones .arista-cases-cta .pill.orange{display:inline-flex;width:auto;max-width:100%;min-height:40px;padding:8px 13px;font-size:11px;font-weight:400;line-height:1.4;text-align:center}
 }
 @media(prefers-reduced-motion:reduce){#situaciones .arista-case{scroll-behavior:auto}}
 
