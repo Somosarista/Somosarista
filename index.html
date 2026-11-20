@@ -325,6 +325,11 @@ document.querySelectorAll('a[href^="https://wa.me/56961194987"]').forEach(link=>
    const response=await fetch(form.action,{method:'POST',headers:{Accept:'application/json'},body:new FormData(form),signal:controller.signal});
    const result=await response.json();
    if(!response.ok||result.success!==true)throw new Error('Submission not confirmed');
+   // Registrar solo envíos confirmados; un fallo de medición no invalida la consulta.
+   try{
+    if(typeof gtag==='function')gtag('event','conversion',{'send_to':'AW-18496498958/M3PcCLXwh6UdEI7a6PNE'});
+   }catch(trackingError){}
+
    form.reset();status.dataset.state='success';
    status.textContent='Recibimos tu consulta. Te contactaremos por los datos que nos dejaste.';
   }catch(error){
