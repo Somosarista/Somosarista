@@ -214,10 +214,10 @@ document.querySelectorAll('#situaciones .arista-case').forEach(function(caseItem
 <input type="hidden" name="from_name" value="Formulario ARISTA">
 <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true">
 <div class="arista-form-fields">
-<div><label for="arista-name">Nombre</label><input id="arista-name" name="name" type="text" autocomplete="name" maxlength="120" required></div>
-<div><label for="arista-email">Correo electrónico</label><input id="arista-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
-<div><label for="arista-phone">Teléfono</label><input id="arista-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" required></div>
-<div class="arista-form-message"><label for="arista-message">Cuéntanos tu caso</label><textarea id="arista-message" name="message" rows="4" maxlength="6000" required></textarea></div>
+<div><label for="arista-name">Nombre</label><input id="arista-name" placeholder="Ej.: Juan Pérez" name="name" type="text" autocomplete="name" maxlength="120" required></div>
+<div><label for="arista-email">Correo electrónico</label><input id="arista-email" placeholder="Ej.: nombre@gmail.com" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+<div><label for="arista-phone">Teléfono</label><input id="arista-phone" placeholder="Ej.: +56 9 1234 5678" name="phone" type="tel" autocomplete="tel" maxlength="40" required></div>
+<div class="arista-form-message"><label for="arista-message">Cuéntanos tu caso</label><textarea id="arista-message" placeholder="Ej.: La propiedad está en San Miguel, tengo contrato de arrendamiento y me deben tres meses de arriendo." name="message" rows="4" maxlength="6000" required></textarea></div>
 </div>
 <p class="arista-form-note">Usaremos estos datos para responder tu consulta.</p>
 <button type="submit">Solicitar evaluación de mi caso</button>
